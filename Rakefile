@@ -1,48 +1,44 @@
 #!/usr/bin/env rake
 
 require 'json'
-require File.expand_path('../lib/bootstrap-datepicker-rails/version', __FILE__)
+require File.expand_path('../lib/bootstrap4_datetime_picker_rails/version', __FILE__)
 
-desc "Update assets"
+desc 'Update assets'
 task :update do
-  if ARGV.count > 1
-    checkout_branch = "tags/#{ARGV.last}"
-    task ARGV.last.to_sym {}
+
+  checkout_branch = '5.0.0-alpha8'
+
+  if Dir.exist?('tempus-dominus-source')
+    system("cd tempus-dominus-source && git checkout master && git pull && git checkout #{checkout_branch}")
   else
-    checkout_branch = "`git describe --abbrev=0`"
+    system('git clone https://github.com/tempusdominus/bootstrap-4.git tempus-dominus-source')
+    system("cd tempus-dominus-source && git checkout #{checkout_branch}")
   end
 
-  if Dir.exist?('bootstrap-datepicker-src')
-    system("cd bootstrap-datepicker-src && git checkout master && git pull && git checkout #{checkout_branch}")
-  else
-    system("git clone git://github.com/eternicode/bootstrap-datepicker.git bootstrap-datepicker-src")
-    system("cd bootstrap-datepicker-src && git checkout #{checkout_branch}")
-  end
-
-  system("cp bootstrap-datepicker-src/dist/css/bootstrap-datepicker.css vendor/assets/stylesheets/bootstrap-datepicker.css")
-  system("cp bootstrap-datepicker-src/dist/css/bootstrap-datepicker3.css vendor/assets/stylesheets/bootstrap-datepicker3.css")
-  system("cp bootstrap-datepicker-src/dist/js/bootstrap-datepicker.js vendor/assets/javascripts/bootstrap-datepicker/core.js")
-  system("cp bootstrap-datepicker-src/js/locales/*.js vendor/assets/javascripts/bootstrap-datepicker/locales/")
-  system("git status")
+  system('cp tempus-dominus-source/build/css/tempusdominus-bootstrap-4.css vendor/assets/stylesheets/tempusdominus-bootstrap-4.css')
+  system('cp tempus-dominus-source/build/css/tempusdominus-bootstrap-4.min.css vendor/assets/stylesheets/tempusdominus-bootstrap-4.min.css')
+  system('cp tempus-dominus-source/build/js/tempusdominus-bootstrap-4.js vendor/assets/javascripts/tempusdominus-bootstrap-4.js')
+  system('cp tempus-dominus-source/build/js/tempusdominus-bootstrap-4.min.js vendor/assets/javascripts/tempusdominus-bootstrap-4.min.js')
+  system('git status')
 
   puts "\n"
-  puts "bootstrap-datepicker version:       #{JSON.parse(File.read('./bootstrap-datepicker-src/bower.json'))['version']}"
-  puts "bootstrap-datepicker-rails version: #{BootstrapDatepickerRails::Rails::VERSION}"
+  puts "tempusdominus-bootstrap-4 version:       #{JSON.parse(File.read('./tempus-dominus-source/bower.json'))['version']}"
+  puts "tempus-dominus-datetime-picker-rails version: #{Bootstrap4DatetimePickerRails::Rails::VERSION}"
 end
 
-desc "Build"
-task "build" do
-  system("gem build bootstrap-datepicker-rails.gemspec")
+desc 'Build'
+task 'build' do
+  system('gem build bootstrap4_datetime_picker_rails.gemspec')
 end
 
-desc "Build and publish the gem"
-task :publish => :build do
+desc 'Build and publish the gem'
+task publish: :build do
   tags = `git tag`.split
-  current_version = BootstrapDatepickerRails::Rails::VERSION
+  current_version = Bootstrap4DatetimePickerRails::Rails::VERSION
   system("git tag -a #{current_version} -m 'Release #{current_version}'") unless tags.include?(current_version)
-  system("gem push bootstrap-datepicker-rails-#{current_version}.gem")
-  system("git push --follow-tags")
+  system("gem push tempus-dominus-datetime-picker-rails-#{current_version}.gem")
+  system('git push --follow-tags')
 end
 
-task :release => :publish do
+task release: :publish do
 end
