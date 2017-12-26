@@ -10,9 +10,9 @@ Gem::Specification.new do |gem|
   gem.license       = 'MIT'
 
   gem.name          = 'bootstrap4-datetime-picker-rails'
-  gem.require_path = 'lib'
+  gem.require_path  = 'lib'
   gem.version       = Bootstrap4DatetimePickerRails::Rails::VERSION
-
+  gem.files         = `git ls-files`.split("\n")
   gem.add_dependency 'momentjs-rails', '>= 2.10.5'
   gem.add_development_dependency 'bundler', '~> 0'
   gem.add_development_dependency 'json', '~> 0'
