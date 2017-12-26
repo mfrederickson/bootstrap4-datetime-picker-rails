@@ -36,7 +36,7 @@ task publish: :build do
   tags = `git tag`.split
   current_version = Bootstrap4DatetimePickerRails::Rails::VERSION
   system("git tag -a #{current_version} -m 'Release #{current_version}'") unless tags.include?(current_version)
-  system("gem push tempus-dominus-datetime-picker-rails-#{current_version}.gem")
+  system("gem push bootstrap4-datetime-picker-rails-#{current_version}.gem")
   system('git push --follow-tags')
 end
 

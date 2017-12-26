@@ -1,5 +1,5 @@
 module Bootstrap4DatetimePickerRails
   module Rails
-    VERSION = '1.0.1'.freeze
+    VERSION = '5.0.0-alpha12'.freeze
   end
 end
