@@ -6,7 +6,7 @@ require File.expand_path('../lib/bootstrap4_datetime_picker_rails/version', __FI
 desc 'Update assets'
 task :update do
 
-  checkout_branch = '5.0.0-alpha12'
+  checkout_branch = '5.0.0-alpha14'
 
   if Dir.exist?('tempus-dominus-source')
     system("cd tempus-dominus-source && git checkout master && git pull && git checkout #{checkout_branch}")
@@ -22,7 +22,7 @@ task :update do
   system('git status')
 
   puts "\n"
-  puts "tempusdominus-bootstrap-4 version:       #{JSON.parse(File.read('./tempus-dominus-source/bower.json'))['version']}"
+  puts "tempusdominus-bootstrap-4 version:       #{JSON.parse(File.read('./tempus-dominus-source/package.json'))['version']}"
   puts "tempus-dominus-datetime-picker-rails version: #{Bootstrap4DatetimePickerRails::Rails::VERSION}"
 end
 
