@@ -14,7 +14,8 @@ Gem::Specification.new do |gem|
   gem.version       = Bootstrap4DatetimePickerRails::Rails::VERSION
   gem.files         = `git ls-files`.split("\n")
   gem.add_dependency 'momentjs-rails', '~> 2.10', '>= 2.10.5'
-  gem.add_development_dependency 'bundler', '~> 1.16.0'
-  gem.add_development_dependency 'json', '~> 2.1.0'
-  gem.add_development_dependency 'rake', '~> 12.3.0'
+  gem.add_dependency 'jquery-rails', '~> 4.2', '>= 4.2.0'
+  gem.add_development_dependency 'bundler', '~> 1.16', '>= 1.16.0'
+  gem.add_development_dependency 'json', '~> 2.1', ' >= 2.1.0'
+  gem.add_development_dependency 'rake', '~> 12.3', '>= 12.3.0'
 end
