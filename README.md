@@ -10,7 +10,10 @@ Add the following to your `Gemfile` and then run `bundle`
 
 Add the following to `application.js`
 
-`//= require tempusdominus-bootstrap-4.js`
+```
+//= require moment
+//= require tempusdominus-bootstrap-4.js
+```
 
 Add the following to `application.scss`
 
