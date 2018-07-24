@@ -6,7 +6,7 @@ require File.expand_path('../lib/bootstrap4_datetime_picker_rails/version', __FI
 desc 'Update assets'
 task :update do
 
-  checkout_branch = '5.0.0'
+  checkout_branch = '5.0.1'
 
   if Dir.exist?('tempus-dominus-source')
     system("cd tempus-dominus-source && git checkout master && git pull && git checkout #{checkout_branch}")
