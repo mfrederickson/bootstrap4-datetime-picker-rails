@@ -18,3 +18,18 @@ Add the following to `application.js`
 Add the following to `application.scss`
 
 `@import "tempusdominus-bootstrap-4.css";`
+
+## Update Instructions
+Change the `checkout_branch` variable in `Rakefile` to the version.
+
+Change the versions in `lib/bootstrap4_datetime_picker_rails/version.rb`
+
+Commit with 'Update to $VERSION release'
+
+Run `git push`
+
+Run `bundle exec rake build` to confirm a successful build
+
+Run `bundle exec rake publish` to publish to rubygems (automatically creates and pushes a tag to git)
+
+Create a release on GitHub with the new gem version
