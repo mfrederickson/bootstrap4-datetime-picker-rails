@@ -24,6 +24,8 @@ Change the `checkout_branch` variable in `Rakefile` to the version.
 
 Change the versions in `lib/bootstrap4_datetime_picker_rails/version.rb`
 
+Run  `bundle exec rake update`
+
 Commit with 'Update to $VERSION release'
 
 Run `git push`

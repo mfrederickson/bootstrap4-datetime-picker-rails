@@ -1,6 +1,6 @@
 module Bootstrap4DatetimePickerRails
   module Rails
-    VERSION = '0.1.8'
-    TEMPUS_DOMINUS_VERSION = '5.0.1'
+    VERSION = '0.2.0'
+    TEMPUS_DOMINUS_VERSION = '5.1.1'
   end
 end
