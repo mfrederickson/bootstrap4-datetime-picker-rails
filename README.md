@@ -19,6 +19,23 @@ Add the following to `application.scss`
 
 `@import "tempusdominus-bootstrap-4.css";`
 
+## Localizations
+
+The Tempus Dominus datepicker exposes Moment.js localizations. A list of available Moment localizations are found [here](https://github.com/moment/moment/tree/master/locale).
+
+Select which JavaScript file you want to use and then add the following line in `application.js`
+
+```
+//= require moment/<locale>.js
+```
+
+Then, where your datepicker is configured (such as a `.coffee` file), add the following configuration option:
+
+```coffeescript
+$(#datetimepicker).datetimepicker
+  locale: 'de'
+```
+
 ## Update Instructions
 Change the `checkout_branch` variable in `Rakefile` to the version.
 
