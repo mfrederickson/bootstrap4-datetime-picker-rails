@@ -12,12 +12,25 @@ Add the following to `application.js`
 
 ```
 //= require moment
-//= require tempusdominus-bootstrap-4.js
+// If you require timezone data (see moment-timezone-rails for additional file options)
+//= require moment-timezone-with-data
+//= require tempusdominus-bootstrap-4
 ```
 
 Add the following to `application.scss`
 
 `@import "tempusdominus-bootstrap-4.css";`
+
+
+If you are not using Sass, add the following to your `application.css`
+
+```
+/*
+...
+*= require tempusdominus-bootstrap-4
+...
+*/
+```
 
 ## Localizations
 
