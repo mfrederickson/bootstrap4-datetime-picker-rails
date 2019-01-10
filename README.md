@@ -19,6 +19,10 @@ Add the following to `application.scss`
 
 `@import "tempusdominus-bootstrap-4";`
 
+Or
+
+`*= require tempusdominus-bootstrap-4`
+
 ## Localizations
 
 The Tempus Dominus datepicker exposes Moment.js localizations. A list of available Moment localizations are found [here](https://github.com/moment/moment/tree/master/locale).
