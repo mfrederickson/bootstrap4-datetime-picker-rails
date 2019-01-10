@@ -19,7 +19,11 @@ Add the following to `application.js`
 
 Add the following to `application.scss`
 
-`@import "tempusdominus-bootstrap-4.css";`
+`@import "tempusdominus-bootstrap-4";`
+
+Or
+
+`*= require tempusdominus-bootstrap-4`
 
 
 If you are not using Sass, add the following to your `application.css`
