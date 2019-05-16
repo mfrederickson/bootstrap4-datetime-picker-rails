@@ -561,7 +561,8 @@ var DateTimePicker = function ($, moment) {
         };
 
         DateTimePicker.prototype._notifyEvent = function _notifyEvent(e) {
-            if (e.type === DateTimePicker.Event.CHANGE && (e.date && e.date.isSame(e.oldDate)) || !e.date && !e.oldDate) {
+            // 5/16/2019 mjf need to know when value is cleared.  this was suppressing it
+            if (e.type === DateTimePicker.Event.CHANGE && (e.date && e.date.isSame(e.oldDate)) /*|| !e.date && !e.oldDate*/) {
                 return;
             }
             this._element.trigger(e);
